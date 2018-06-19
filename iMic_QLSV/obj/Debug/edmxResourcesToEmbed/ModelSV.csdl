@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SinhVienModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Level" Type="Int32" Nullable="false" />
+    <Property Name="isActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_DangNhap">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="Int32" />
+    <Property Name="MSSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Diem">
+    <Key>
+      <PropertyRef Name="MSSV" />
+      <PropertyRef Name="MaMH" />
+    </Key>
+    <Property Name="MSSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaMH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Diem" Type="Double" />
+    <NavigationProperty Name="tbl_DMMonHoc" Relationship="Self.FK_tbl_Diem_tbl_DMMonHoc" FromRole="tbl_Diem" ToRole="tbl_DMMonHoc" />
+    <NavigationProperty Name="tbl_SinhVien" Relationship="Self.FK_tbl_Diem_tbl_SinhVien" FromRole="tbl_Diem" ToRole="tbl_SinhVien" />
+  </EntityType>
+  <EntityType Name="tbl_DMMonHoc">
+    <Key>
+      <PropertyRef Name="MaMH" />
+    </Key>
+    <Property Name="MaMH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenMH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SoTinChi" Type="Int32" />
+    <Property Name="Khoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Diem" Relationship="Self.FK_tbl_Diem_tbl_DMMonHoc" FromRole="tbl_DMMonHoc" ToRole="tbl_Diem" />
+  </EntityType>
+  <EntityType Name="tbl_Khoa">
+    <Key>
+      <PropertyRef Name="MaKhoa" />
+    </Key>
+    <Property Name="MaKhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenKhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_SinhVien" Relationship="Self.FK_tbl_SinhVien_tbl_Khoa" FromRole="tbl_Khoa" ToRole="tbl_SinhVien" />
+  </EntityType>
+  <EntityType Name="tbl_SinhVien">
+    <Key>
+      <PropertyRef Name="MSSV" />
+    </Key>
+    <Property Name="MSSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ho" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="NTNS" Type="DateTime" Precision="0" />
+    <Property Name="NoiSinh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MaKhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KetQuaTN" Type="Boolean" />
+    <Property Name="DTB" Type="Double" />
+    <Property Name="XepLoaiTN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Diem" Relationship="Self.FK_tbl_Diem_tbl_SinhVien" FromRole="tbl_SinhVien" ToRole="tbl_Diem" />
+    <NavigationProperty Name="tbl_Khoa" Relationship="Self.FK_tbl_SinhVien_tbl_Khoa" FromRole="tbl_SinhVien" ToRole="tbl_Khoa" />
+    <Property Name="isUserLogin" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK_tbl_Diem_tbl_DMMonHoc">
+    <End Role="tbl_DMMonHoc" Type="Self.tbl_DMMonHoc" Multiplicity="1" />
+    <End Role="tbl_Diem" Type="Self.tbl_Diem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_DMMonHoc">
+        <PropertyRef Name="MaMH" />
+      </Principal>
+      <Dependent Role="tbl_Diem">
+        <PropertyRef Name="MaMH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Diem_tbl_SinhVien">
+    <End Role="tbl_SinhVien" Type="Self.tbl_SinhVien" Multiplicity="1" />
+    <End Role="tbl_Diem" Type="Self.tbl_Diem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_SinhVien">
+        <PropertyRef Name="MSSV" />
+      </Principal>
+      <Dependent Role="tbl_Diem">
+        <PropertyRef Name="MSSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_SinhVien_tbl_Khoa">
+    <End Role="tbl_Khoa" Type="Self.tbl_Khoa" Multiplicity="0..1" />
+    <End Role="tbl_SinhVien" Type="Self.tbl_SinhVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Khoa">
+        <PropertyRef Name="MaKhoa" />
+      </Principal>
+      <Dependent Role="tbl_SinhVien">
+        <PropertyRef Name="MaKhoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SinhVienEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="tbl_DangNhap" EntityType="Self.tbl_DangNhap" />
+    <EntitySet Name="tbl_Diem" EntityType="Self.tbl_Diem" />
+    <EntitySet Name="tbl_DMMonHoc" EntityType="Self.tbl_DMMonHoc" />
+    <EntitySet Name="tbl_Khoa" EntityType="Self.tbl_Khoa" />
+    <EntitySet Name="tbl_SinhVien" EntityType="Self.tbl_SinhVien" />
+    <AssociationSet Name="FK_tbl_Diem_tbl_DMMonHoc" Association="Self.FK_tbl_Diem_tbl_DMMonHoc">
+      <End Role="tbl_DMMonHoc" EntitySet="tbl_DMMonHoc" />
+      <End Role="tbl_Diem" EntitySet="tbl_Diem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Diem_tbl_SinhVien" Association="Self.FK_tbl_Diem_tbl_SinhVien">
+      <End Role="tbl_SinhVien" EntitySet="tbl_SinhVien" />
+      <End Role="tbl_Diem" EntitySet="tbl_Diem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_SinhVien_tbl_Khoa" Association="Self.FK_tbl_SinhVien_tbl_Khoa">
+      <End Role="tbl_Khoa" EntitySet="tbl_Khoa" />
+      <End Role="tbl_SinhVien" EntitySet="tbl_SinhVien" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SinhVienDataset" targetNamespace="http://tempuri.org/SinhVienDataset.xsd" xmlns:mstns="http://tempuri.org/SinhVienDataset.xsd" xmlns="http://tempuri.org/SinhVienDataset.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SinhVienDataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SinhVienDataset" msprop:Generator_UserDSName="SinhVienDataset">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SinhVien" msprop:Generator_TableClassName="SinhVienDataTable" msprop:Generator_TableVarName="tableSinhVien" msprop:Generator_TablePropName="SinhVien" msprop:Generator_RowDeletingName="SinhVienRowDeleting" msprop:Generator_RowChangingName="SinhVienRowChanging" msprop:Generator_RowEvHandlerName="SinhVienRowChangeEventHandler" msprop:Generator_RowDeletedName="SinhVienRowDeleted" msprop:Generator_UserTableName="SinhVien" msprop:Generator_RowChangedName="SinhVienRowChanged" msprop:Generator_RowEvArgName="SinhVienRowChangeEvent" msprop:Generator_RowClassName="SinhVienRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:string" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Khoa" msprop:Generator_ColumnVarNameInTable="columnKhoa" msprop:Generator_ColumnPropNameInRow="Khoa" msprop:Generator_ColumnPropNameInTable="KhoaColumn" msprop:Generator_UserColumnName="Khoa" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Khoa" msprop:Generator_TableClassName="KhoaDataTable" msprop:Generator_TableVarName="tableKhoa" msprop:Generator_TablePropName="Khoa" msprop:Generator_RowDeletingName="KhoaRowDeleting" msprop:Generator_RowChangingName="KhoaRowChanging" msprop:Generator_RowEvHandlerName="KhoaRowChangeEventHandler" msprop:Generator_RowDeletedName="KhoaRowDeleted" msprop:Generator_UserTableName="Khoa" msprop:Generator_RowChangedName="KhoaRowChanged" msprop:Generator_RowEvArgName="KhoaRowChangeEvent" msprop:Generator_RowClassName="KhoaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:string" minOccurs="0" />
+              <xs:element name="TenKhoa" msprop:Generator_ColumnVarNameInTable="columnTenKhoa" msprop:Generator_ColumnPropNameInRow="TenKhoa" msprop:Generator_ColumnPropNameInTable="TenKhoaColumn" msprop:Generator_UserColumnName="TenKhoa" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1">
+      <xs:selector xpath=".//mstns:SinhVien" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="Khoa_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:Khoa" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="Khoa_SinhVien" msdata:parent="Khoa" msdata:child="SinhVien" msdata:parentkey="ID" msdata:childkey="Khoa" msprop:Generator_UserChildTable="SinhVien" msprop:Generator_ChildPropName="GetSinhVienRows" msprop:Generator_UserRelationName="Khoa_SinhVien" msprop:Generator_RelationVarName="relationKhoa_SinhVien" msprop:Generator_UserParentTable="Khoa" msprop:Generator_ParentPropName="KhoaRow" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>
