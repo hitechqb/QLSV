@@ -49,20 +49,22 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.cbRole = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             this.txtUserName = new DevExpress.XtraEditors.TextEdit();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
+            this.imbRole = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imgList = new DevExpress.Utils.ImageCollection(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.srcMSSV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbRole.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imbRole.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgList)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -70,19 +72,19 @@
             this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
             this.groupControl1.CaptionImageOptions.Location = DevExpress.Utils.GroupElementLocation.BeforeText;
             this.groupControl1.CaptionImageOptions.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.groupControl1.Controls.Add(this.imbRole);
             this.groupControl1.Controls.Add(this.pictureEdit1);
             this.groupControl1.Controls.Add(this.srcMSSV);
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.labelControl1);
-            this.groupControl1.Controls.Add(this.cbRole);
             this.groupControl1.Controls.Add(this.txtPassword);
             this.groupControl1.Controls.Add(this.txtUserName);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(0, 44);
+            this.groupControl1.Location = new System.Drawing.Point(0, 45);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(430, 218);
+            this.groupControl1.Size = new System.Drawing.Size(416, 211);
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "Thông tin chi tiết";
             // 
@@ -154,31 +156,31 @@
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl2.Location = new System.Drawing.Point(0, 0);
             this.barDockControl2.Manager = this.barManager1;
-            this.barDockControl2.Size = new System.Drawing.Size(430, 44);
+            this.barDockControl2.Size = new System.Drawing.Size(416, 45);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 262);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 256);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(430, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(416, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 44);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 45);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 218);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 211);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(430, 44);
+            this.barDockControlRight.Location = new System.Drawing.Point(416, 45);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 218);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 211);
             // 
             // srcMSSV
             // 
@@ -233,7 +235,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(23, 161);
+            this.labelControl4.Location = new System.Drawing.Point(23, 165);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(43, 13);
             this.labelControl4.TabIndex = 3;
@@ -241,7 +243,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(23, 125);
+            this.labelControl3.Location = new System.Drawing.Point(23, 129);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(31, 13);
             this.labelControl3.TabIndex = 3;
@@ -249,7 +251,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(23, 89);
+            this.labelControl2.Location = new System.Drawing.Point(23, 93);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(44, 13);
             this.labelControl2.TabIndex = 3;
@@ -257,20 +259,11 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(23, 53);
+            this.labelControl1.Location = new System.Drawing.Point(23, 57);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(72, 13);
             this.labelControl1.TabIndex = 3;
             this.labelControl1.Text = "Tên đăng nhập";
-            // 
-            // cbRole
-            // 
-            this.cbRole.Location = new System.Drawing.Point(108, 122);
-            this.cbRole.Name = "cbRole";
-            this.cbRole.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbRole.Size = new System.Drawing.Size(154, 20);
-            this.cbRole.TabIndex = 2;
             // 
             // txtPassword
             // 
@@ -299,9 +292,9 @@
             this.barDockControlTop.Appearance.Options.UseForeColor = true;
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 44);
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 45);
             this.barDockControlTop.Manager = null;
-            this.barDockControlTop.Size = new System.Drawing.Size(430, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(416, 0);
             // 
             // barDockControl1
             // 
@@ -311,15 +304,37 @@
             this.barDockControl1.Appearance.Options.UseForeColor = true;
             this.barDockControl1.CausesValidation = false;
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControl1.Location = new System.Drawing.Point(0, 44);
+            this.barDockControl1.Location = new System.Drawing.Point(0, 45);
             this.barDockControl1.Manager = null;
-            this.barDockControl1.Size = new System.Drawing.Size(430, 0);
+            this.barDockControl1.Size = new System.Drawing.Size(416, 0);
+            // 
+            // imbRole
+            // 
+            this.imbRole.Location = new System.Drawing.Point(108, 122);
+            this.imbRole.MenuManager = this.barManager1;
+            this.imbRole.Name = "imbRole";
+            this.imbRole.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.imbRole.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Quản trị", 1, 0),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Sinh viên", 2, 1)});
+            this.imbRole.Properties.SmallImages = this.imgList;
+            this.imbRole.Size = new System.Drawing.Size(154, 20);
+            this.imbRole.TabIndex = 6;
+            // 
+            // imgList
+            // 
+            this.imgList.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imgList.ImageStream")));
+            this.imgList.InsertGalleryImage("role_16x16.png", "images/people/role_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/people/role_16x16.png"), 0);
+            this.imgList.Images.SetKeyName(0, "role_16x16.png");
+            this.imgList.InsertGalleryImage("publicfix_16x16.png", "images/people/publicfix_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/people/publicfix_16x16.png"), 1);
+            this.imgList.Images.SetKeyName(1, "publicfix_16x16.png");
             // 
             // FrmThongTinNguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 262);
+            this.ClientSize = new System.Drawing.Size(416, 256);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.barDockControlTop);
             this.Controls.Add(this.barDockControl1);
@@ -339,9 +354,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.srcMSSV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbRole.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imbRole.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,7 +372,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.ComboBoxEdit cbRole;
         private DevExpress.XtraEditors.TextEdit txtPassword;
         private DevExpress.XtraEditors.TextEdit txtUserName;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
@@ -373,5 +388,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMSSV;
         private DevExpress.XtraGrid.Columns.GridColumn colHo;
         private DevExpress.XtraGrid.Columns.GridColumn colTen;
+        private DevExpress.XtraEditors.ImageComboBoxEdit imbRole;
+        private DevExpress.Utils.ImageCollection imgList;
     }
 }

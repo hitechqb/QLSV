@@ -39,7 +39,6 @@ namespace iMic_QLSV.View.Admin
         private void FrmThongTinNguoiDung_Load(object sender, EventArgs e)
         {
             LoadInfo();
-            LoadRole();
             LoadMSSVNotAcitve();
         }
         private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -72,14 +71,6 @@ namespace iMic_QLSV.View.Admin
             }
         }
 
-        private void LoadRole()
-        {
-            var role = dbRoleContext.GetAllRole();
-            foreach (var item in role)
-            {
-                cbRole.Properties.Items.Add(item.ID);
-            }
-        }
 
         private void LoadMSSVNotAcitve()
         {
@@ -95,13 +86,14 @@ namespace iMic_QLSV.View.Admin
 
             txtUserName.Text = string.Empty;
             txtPassword.Text = string.Empty;
+            imbRole.EditValue = 2;
         }
 
         private void OnUpdate()
         {
             txtUserName.Text = _dangNhap.TenDangNhap;
             txtPassword.Text = _dangNhap.MatKhau;
-            cbRole.EditValue = _dangNhap.Role;
+            imbRole.EditValue = (_dangNhap.Role);
             srcMSSV.Text = _dangNhap.MSSV;
         }
 
@@ -129,7 +121,7 @@ namespace iMic_QLSV.View.Admin
                 {
                     TenDangNhap = txtUserName.Text,
                     MatKhau = txtPassword.Text,
-                    Role = Int32.Parse(cbRole.EditValue.ToString()),
+                    Role = Int32.Parse(imbRole.EditValue.ToString()),
                     MSSV = srcMSSV.EditValue.ToString(),
                 };
 
@@ -146,7 +138,7 @@ namespace iMic_QLSV.View.Admin
             else
             {
                 var us = dbLoginContext.GetObjectByID(txtUserName.Text).FirstOrDefault();
-                us.Role = Int32.Parse(cbRole.EditValue.ToString());
+                us.Role = Int32.Parse(imbRole.EditValue.ToString());
                 us.MSSV = srcMSSV.EditValue.ToString();
 
                 dbLoginContext.dbContext.SaveChanges();

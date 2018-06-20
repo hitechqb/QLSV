@@ -49,9 +49,18 @@ namespace iMic_QLSV
             btnUserLogin.Caption ="User: " + _userLogin;
             lblMSSV.Caption = "MSSV: "+ _User.FirstOrDefault().MSSV;
             var SinhVien = dbSVContext.GetObjectByID(_User.FirstOrDefault().MSSV).FirstOrDefault();
-            lblSinhVien.Caption = SinhVien.Ho +" "+ SinhVien.Ten;
-            _Khoa = dbKhoaContext.GetKhoaByMaKhoa(SinhVien.MaKhoa).FirstOrDefault();
-            lblKhoa.Caption = _Khoa.TenKhoa;
+            if(SinhVien == null)
+            {
+                lblSinhVien.Caption = "Tên: No Name";
+                lblKhoa.Caption = "Khoa: null";
+            }
+            else
+            {
+                lblSinhVien.Caption = SinhVien.Ho + " " + SinhVien.Ten;
+                _Khoa = dbKhoaContext.GetKhoaByMaKhoa(SinhVien.MaKhoa).FirstOrDefault();
+                lblKhoa.Caption = _Khoa.TenKhoa;
+            }
+            
         }
         private void LoadInfoPersonal()
         {
@@ -102,8 +111,28 @@ namespace iMic_QLSV
 
             else
             {
-                DisableForRole();
+                if(lblKhoa.Caption == "Khoa: null")
+                {
+                    DissibleAll();
+                }
+                else
+                {
+                    DisableForRole();
+                }
             }
+        }
+
+        private void DissibleAll()
+        {
+            btnDanhSachSV.Enabled = btnKhoa.Enabled
+                                  = btnMonHoc.Enabled
+                                  = btnDangKyMonHoc.Enabled
+                                  = btnDiem.Enabled
+                                  = btnKetQuaTN.Enabled
+                                  = btnQuanLyNguoiDung.Enabled
+                                  = btnThongTinCaNhan.Enabled
+                                  = false;
+            lblTime.Caption = "Tài khoản không có quyền thao tác với phần mềm. Vui lòng liên hệ Admin...";
         }
 
         private void ShowForm_DanhSachSinhVien()
@@ -251,9 +280,9 @@ namespace iMic_QLSV
 
         private void Main_Load(object sender, EventArgs e)
         {
+            lblTime.Caption = DateTime.Now.ToLongDateString();
             LoadFunctionRole();
             //ShowForm_DanhSachSinhVien();
-            lblTime.Caption = DateTime.Now.ToLongDateString();
         }
 
         private void btnDanhSachSV_ItemClick(object sender, ItemClickEventArgs e)

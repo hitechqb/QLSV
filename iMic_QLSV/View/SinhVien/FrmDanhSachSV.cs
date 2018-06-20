@@ -103,7 +103,7 @@ namespace iMic_QLSV.View
             {
                 Main alert = new Main();
                 alert.ShowAlert("Thông báo", "Cập nhật thành công!");
-                LoadData();
+                LoadSinhVienByKhoa();
             }
             else
             {
@@ -155,7 +155,7 @@ namespace iMic_QLSV.View
                 {
                     Main alert = new Main();
                     alert.ShowAlert("Thông báo", "Dữ liệu cập nhật thành công");
-                    LoadData();
+                    LoadSinhVienByKhoa();
                 }
 
                 else

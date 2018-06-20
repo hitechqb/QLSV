@@ -116,7 +116,7 @@ namespace iMic_QLSV.View.MonHoc
             if(f.ShowDialog() == DialogResult.OK)
             {
                 ShowAlert();
-                LoadData();
+                LoadMonHocByMaKhoa(srcKhoa.EditValue.ToString());
             }
 
         }
@@ -140,7 +140,7 @@ namespace iMic_QLSV.View.MonHoc
             if(f.ShowDialog() == DialogResult.OK)
             {
                 ShowAlert();
-                LoadData();
+                LoadMonHocByMaKhoa(srcKhoa.EditValue.ToString());
             }
         }
 

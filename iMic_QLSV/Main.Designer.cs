@@ -110,6 +110,8 @@
             this.lblTime.Caption = "Clock";
             this.lblTime.Id = 26;
             this.lblTime.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("lblTime.ImageOptions.SvgImage")));
+            this.lblTime.ItemAppearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lblTime.ItemAppearance.Normal.Options.UseForeColor = true;
             this.lblTime.Name = "lblTime";
             // 
             // lblSinhVien
