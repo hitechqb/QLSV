@@ -133,6 +133,7 @@ namespace iMic_QLSV.View.MonHoc
 
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            LoadDataMonHoc();
             LoadMonHocByKhoa();
         }
 
